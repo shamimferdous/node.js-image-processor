@@ -2,11 +2,26 @@ const express = require('express');
 const app = express();
 const sharp = require('sharp');
 const axios = require('axios');
+const exphbs = require('express-handlebars');
 
+
+//setting up view engine
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+//setting up express static
+app.use(express.static('public'))
+
+
+//the landing renderer api
+app.get('/', (req, res)=>{
+    res.render('interface', { layout: false});
+});
 
 
 //our main image processing api
 app.post('/process', async (req, res) => {
+    console.log(req.query.imageUrl);
 
     //grabbing the image
     const imageResponse = await axios({ url: req.query.imageUrl, responseType: 'arraybuffer' })

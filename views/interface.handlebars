@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processor with Node.js</title>
+
+    <link rel="stylesheet" href="/global.css">
+</head>
+<body>
+    <section class="main">
+        
+        <form onsubmit="onSubmitHandler(event)" name="main-form" class="the-form">
+            <input type="url" class="input" name="imageUrl" id="" placeholder="Enter image URL and hit the arrow">
+            <button type="submit" class="go-button">&#x2192;</button>
+        </form>
+        <div>
+            <img id="loader" class="loader-closed" src="/ball-triangle.svg" width="50" alt="">
+        </div>
+
+    </section>
+
+    <script src="/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+
+</body>
+</html>
