@@ -37,7 +37,8 @@ app.post('/process', async (req, res) => {
         })
         .toFile(`./images/bazar-shodai-binarypoets-${Date.now()}.jpg`, (err, info) => {
             if(err) throw err;
-            res.send(info);
+            res.status(200).json({info: `Format: 'jpeg', Width: 300px, Height: 300px, Size: ${info.size}, Channels: ${info.channels}`});
+            console.log(info)
         });
 });
 
